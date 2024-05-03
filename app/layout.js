@@ -13,7 +13,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="text-3xl text-primary">Navbar</nav>
         <Navbar />
         <main className='px-8 py-20 max-w-6xl mx-auto '>{children}</main>
         </body>

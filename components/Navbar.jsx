@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className='navbar px-8 max-w-6xl mx-auto flex-col sm:flex-row'>
         <li>
           <Link href='/' className='btn btn-primary'>
-            Next.js
+            NEXT.JS
           </Link>
         </li>
         <ul className='menu menu-horizontal md:ml-8'>
