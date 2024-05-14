@@ -6,8 +6,6 @@ const SingleDrinkPage = async ({ params }) => {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${params.id}`;
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data.drinks);
-  console.log(params.id);
   return (
     <div>
       <Link href="/drinks" className="btn btn-primary mb-12 mt-8">
