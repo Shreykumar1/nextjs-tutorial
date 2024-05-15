@@ -16,7 +16,6 @@ const initialState = {
 
 const DeleteForm = ({id}) => {
   const [state,deleteAction] = useFormState(deleteTask,initialState);
-  console.log(state);
   useEffect(()=>{
     if(state.message === 'error'){
       toast.error('there was an error')

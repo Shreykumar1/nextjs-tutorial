@@ -47,7 +47,6 @@ export const createTaskCustom = async (prevState,formData) => {
 export const deleteTask = async (prevState,formData) => {
     const id = await formData.get('id');
 //   await new Promise((resolve)=> setTimeout(resolve,1000))
-console.log(prevState,"Prev");
 
     try {
         await prisma.task.delete({
@@ -56,7 +55,6 @@ console.log(prevState,"Prev");
             }
         });
         revalidatePath('/tasks');
-        console.log(prevState,"Prev");
         return { message : 'success' }
     } catch (error) {
         return { message : 'error' }
