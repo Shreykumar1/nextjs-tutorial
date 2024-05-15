@@ -2,6 +2,8 @@
 import { revalidatePath } from "next/cache"
 import prisma from "./db"
 import { redirect } from "next/navigation"
+import { z } from 'zod';
+
 
 
 export const getAllTasks = async ( ) => {
@@ -42,15 +44,23 @@ export const createTaskCustom = async (prevState,formData) => {
     }
 }
 
-export const deleteTask = async (formData) => {
+export const deleteTask = async (prevState,formData) => {
     const id = await formData.get('id');
-    console.log(id);
-    await prisma.task.delete({
-        where : {
-            id
-        }
-    });
-    revalidatePath('/tasks')
+//   await new Promise((resolve)=> setTimeout(resolve,1000))
+console.log(prevState,"Prev");
+
+    try {
+        await prisma.task.delete({
+            where : {
+                id
+            }
+        });
+        revalidatePath('/tasks');
+        console.log(prevState,"Prev");
+        return { message : 'success' }
+    } catch (error) {
+        return { message : 'error' }
+    }
 }
 
 export const editTask = async (formData) => {
